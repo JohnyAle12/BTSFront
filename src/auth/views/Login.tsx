@@ -47,6 +47,7 @@ export const Login = () => {
                         autoComplete="off"
                         value={email}
                         onChange={onInputChange}
+                        required
                     />
                     <input
                         type="password"
@@ -56,15 +57,15 @@ export const Login = () => {
                         autoComplete="off"
                         value={password}
                         onChange={onInputChange}
+                        required
                     />
                     <input type="submit" className="fadeIn fourth" value="Iniciar sesión" />
-
-                    {loginFailed && (
+                </form>
+                {loginFailed && (
                         <div className="alert alert-danger" role="alert">
                             Error al intentar autenticar
                         </div>
                     )}
-                </form>
 
                 <div id="formFooter"></div>
             </div>

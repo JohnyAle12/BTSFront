@@ -14,19 +14,10 @@ const loginService = async(props : Request): Promise<AuthUser> => {
             throw new Error(error.response.data.message);
         });
     
-    const {
-        id,
-        name,
-        email
-    } = user;
-
-    const result = {
-        id,
-        name,
-        email,
+    return {
+        ...user,
         token: access_token,
-    }
-    return result;
+    };
 }
 
 export default loginService;

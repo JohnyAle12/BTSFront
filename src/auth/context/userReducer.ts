@@ -5,18 +5,15 @@ export const types = {
     logout: '[auth] logout'
 }
 
-export const userReducer = (authUser: AuthUser, action: Action): AuthUser => {
+export const userReducer = (authUser: AuthUser, action: Action): AuthUser | null => {
     switch (action.type) {
         case types.login:
             return {
                 ...authUser,
-                id: 1,
-                name: 'johny',
-                email: 'asd',
-                token: 'asd',
+                ...action.payload
             };
         case types.logout:
-            return authUser;
+            return null;
         default:
             return authUser;
     }

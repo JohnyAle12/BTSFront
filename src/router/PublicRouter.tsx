@@ -7,10 +7,10 @@ type Props = {
     children: JSX.Element
 }
 
-export const PrivateRouter = ({ children }: Props): JSX.Element => {
+export const PublicRouter = ({ children }: Props): JSX.Element => {
     const { user } = useContext<ContextApp>(UserContext);
 
-    return (user?.token)
+    return (!user?.token)
         ? children
-        : <Navigate to='/login'/>
+        : <Navigate to='/dashboard'/>
 }
