@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { ContextApp } from "../types/ContextApp";
+import { ContextApp } from "../interfaces/types";
 
 const context: ContextApp = {}
 
