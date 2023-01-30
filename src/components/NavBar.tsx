@@ -14,6 +14,18 @@ export const Navbar = () => {
         });
     }
 
+    const onHistory = () => {
+        navigate('/history', {
+            replace: true
+        });
+    }
+
+    const onInit = () => {
+        navigate('/dashboard', {
+            replace: true
+        });
+    }
+
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark p-2">
             <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex">
@@ -29,6 +41,13 @@ export const Navbar = () => {
                 <ul className="navbar-nav ml-auto">
                     <button 
                         className="nav-item nav-link btn mr-2"
+                        onClick={onInit}
+                    >
+                        Inicio
+                    </button>
+                    <button 
+                        className="nav-item nav-link btn mr-2"
+                        onClick={onHistory}
                     >
                         Historial
                     </button>

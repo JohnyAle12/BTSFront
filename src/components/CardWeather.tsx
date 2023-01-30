@@ -3,6 +3,7 @@ import { RequestWeather, Weather } from '../interfaces/types';
 import weatherService from '../services/weatherService';
 import mapboxgl from 'mapbox-gl';
 import { Loading } from './Loading';
+import { saveHistory } from '../services/historyService';
 
 export const CardWeather = () => {
     const [loading, setLoading] = useState<boolean>(false)
@@ -13,6 +14,7 @@ export const CardWeather = () => {
         const data = await weatherService({...props});
         setWeather(data);
         setLoading(false);
+        saveHistory(data);
     }
 
     useEffect(() => {

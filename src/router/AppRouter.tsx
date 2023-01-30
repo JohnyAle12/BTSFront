@@ -3,6 +3,7 @@ import { Dashboard } from '../views/Dashboard'
 import { Login } from '../auth/views/Login'
 import { PrivateRouter } from './PrivateRouter'
 import { PublicRouter } from './PublicRouter'
+import { HistoryList } from '../views/HistoryList'
 
 export const AppRouter = () => {
   return (
@@ -18,6 +19,7 @@ export const AppRouter = () => {
           <PrivateRouter>
             <Routes>
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/history" element={<HistoryList />} />
             </Routes>
           </PrivateRouter>
         } />
