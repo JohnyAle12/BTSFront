@@ -11,9 +11,11 @@ Before you download project, please run:
 $ npm install
 ```
 
+Make sure to check the .env.example and put the environment variables to connect with third-party providers
+
 After you can execute the application in local environment with:
 
 ```bash
-# generat new key aplication on the .env file
+# start local project 
 $ npm run dev
 ```
