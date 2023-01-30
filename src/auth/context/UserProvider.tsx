@@ -4,8 +4,7 @@ import { UserContext } from './UserContext';
 import { types, userReducer } from './userReducer';
 
 const init = () => {
-    const user = JSON.parse(localStorage.getItem('auth') || '{}');  
-    return user;
+    return JSON.parse(localStorage.getItem('auth') || '{}');
 }
 
 export const UserProvider = ({ children }: any) => {

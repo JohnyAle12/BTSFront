@@ -8,7 +8,7 @@ export type AuthUser = {
     id: number,
     name: string,
     email: string,
-    token: string,
+    token?: string,
 }
 
 export type Action = {
