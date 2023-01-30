@@ -21,7 +21,7 @@ export const HistoryCard = ({
             <strong>Humedad:</strong> {humidity}%
           </p>
         </div>
-        <div className="card-footer">{created_at}</div>
+        <div className="card-footer">{new Date(created_at).toLocaleString('en-US')}</div>
       </div>
     </div>
   )
