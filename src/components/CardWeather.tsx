@@ -1,15 +1,32 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { RequestWeather, Weather } from '../interfaces/types';
 import weatherService from '../services/weatherService';
+import mapboxgl from 'mapbox-gl';
+import { Loading } from './Loading';
 
 export const CardWeather = () => {
-
+    const [loading, setLoading] = useState<boolean>(false)
     const [weather, setWeather] = useState<Weather|null>(null);
 
     const onGetWeather = async(props : RequestWeather) => {
+        setLoading(true);
         const data = await weatherService({...props});
         setWeather(data);
+        setLoading(false);
     }
+
+    useEffect(() => {
+        if(weather){
+            const {lat, lon} = weather.coord
+            new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v12',
+                center: [lon, lat],
+                zoom: 9,
+            });
+        }
+    }, [weather?.coord])
+    
 
     return (
         <>
@@ -43,17 +60,22 @@ export const CardWeather = () => {
                     Los Angeles
                 </button>
             </div>
+
+            {loading && (<Loading />)}
             
-            {weather && (
-                <div className="alert alert-success" role="alert">
-                    <h4 className="alert-heading">{weather.name}</h4>
-                        <p>
-                            <strong>País:</strong> {weather.country},
-                            <strong>Humedad:</strong> {weather.humidity}%
-                        </p>
-                    <hr />
-                    <p className="mb-0">{weather.description}</p>
-                </div>
+            {(weather && !loading) && (
+                <>
+                    <div className="alert alert-success" role="alert">
+                        <h4 className="alert-heading">{weather.name}</h4>
+                            <p>
+                                <strong>País:</strong> {weather.country},
+                                <strong>Humedad:</strong> {weather.humidity}%
+                            </p>
+                        <hr />
+                        <p className="mb-0">{weather.description}</p>
+                    </div>
+                    <div id="map" className=""></div>
+                </>
             )}
         </>
     )
