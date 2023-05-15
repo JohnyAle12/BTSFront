@@ -14,7 +14,6 @@ export const HistoryCard = ({
       <div className="card bg-light m-3">
         <div className="card-header">{city}</div>
         <div className="card-body">
-          <h5 className="card-title">{id}</h5>
           <p className="card-text">
             <strong>Latitud:</strong> {latitude} <br />
             <strong>Longitud:</strong> {longitude} <br />
