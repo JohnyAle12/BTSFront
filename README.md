@@ -19,3 +19,10 @@ After you can execute the application in local environment with:
 # start local project 
 $ npm run dev
 ```
+
+After you need to copy to .env.example file to .env.development and assign the necesary variables for third providers
+For the local backend host usually you can use http://localhost:8000/api/
+
+I know that is a bad practice but i will put here my secret keys to test application quickly
+WEATHER KEY: 9316b3bdfe2a535ec35d6e3846d3c4d8
+MAPBOX KEY: pk.eyJ1Ijoiam9obnlwcmlldG8iLCJhIjoiY2s4MXVxbHBnMHY4YzNkbG5sb2Z2MHJuaSJ9.zXT2ELqv3bSOLcNke95ASg
